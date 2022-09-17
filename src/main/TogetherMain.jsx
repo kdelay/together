@@ -1,8 +1,9 @@
 import React from "react";
 import Header from "./header/Header";
-import Footer from "./Footer";
-import styles from './header/Header.module.css'
+import Footer from "./footer/Footer";
+import styles from './Main.module.css'
 // import TogetherLogo from "../img/togetherLogo.png";
+import Sidebar from './sidebar/Sidebar'
 
 const TogetherMain = (props: {
   children: React.ReactNode
@@ -10,9 +11,12 @@ const TogetherMain = (props: {
   return (
     <div className={styles.layout}>
       <Header/>
-        <main>
+
+        <main className={styles.main}>
+          <Sidebar/>
           {props.children}
         </main>
+
       <Footer/>
     </div>
   );

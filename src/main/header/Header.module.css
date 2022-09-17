@@ -7,10 +7,6 @@
     background-color: #dde0ea;
 }
 
-.layout {
-    padding-top: 80px;
-}
-
 .contents {
     display:flex;
     width: 96%;
@@ -21,13 +17,17 @@
     justify-content: space-between;
 }
 
-.navigation {
-    ul {
-        display: flex;
-        list-style:none;
+.logo {
+    display: flex;
+    width: 100px;
+    height: 10%;
+}
 
-        li + li {
-            margin-left: 30px;
-        }
-    }
+.navigation > ul {
+    display: flex;
+    list-style: none;
+}
+
+.navigation > ul > li + li {
+    margin-left: 30px;
 }
