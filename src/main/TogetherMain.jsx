@@ -13,11 +13,8 @@ const TogetherMain = (props: {
       <Header/>
 
         <main className={styles.main}>
-          <div>
           <Sidebar />
           <Group/>
-          </div>
-          
           {props.children}
         </main>
 

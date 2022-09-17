@@ -4,5 +4,7 @@
 
 .main {
     min-height: calc(100vh - 180px);
-    display: grid;
+    flex-direction: row;
+    grid-template-columns: auto;
+    display: flex;
 }
