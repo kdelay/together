@@ -1,9 +1,11 @@
 import React from 'react';
+import './CSSSidebar.css'
 
 function SidebarItem({menu}) {
     return (
         <div className='sidebar-item'>
-            <p>{menu.name}</p>
+            <p>{menu.img}{menu.name}</p>
+            
         </div>
     );
 }

@@ -1,0 +1,8 @@
+.sidebar-item {
+    display:flex;
+    width: 35%;
+    max-width: 1900px;
+    height: 100%;
+    margin: 0 auto;
+    align-items: center;
+}

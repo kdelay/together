@@ -1,19 +1,26 @@
 import React from "react";
 import styles from "./Header.module.css";
+import {FaBell} from 'react-icons/fa'
+import {BsPersonCircle} from 'react-icons/bs'
+
 
 const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.contents}>
-        <div>
-            {/* <img alt='logo' className={styles.logo} src={require('../img/togetherLogo.png')}/> */}
-        </div>
+        <img
+          alt="logo"
+          className={styles.logo}
+          src={require("../img/togetherLogo.png")}
+        />
+
+        <h2 className={styles.textLogo}>Together</h2>
 
         <nav className={styles.navigation}>
           <ul>
-            <li>메뉴 1</li>
+            <li><FaBell/></li>
 
-            <li>메뉴 2</li>
+            <li><BsPersonCircle/></li>
           </ul>
         </nav>
       </div>
