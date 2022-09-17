@@ -1,25 +1,24 @@
-import React from 'react';
+import React from "react";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
-import Sidebar from '../sidebar/Sidebar';
-import '../sidebar/CSSDropdown.css';
-import '../sidebar/CSSSidebar.css';
-import styles from '../Main.module.css';
+import styles from '../Main.module.css'
+import Sidebar from '../sidebar/Sidebar'
 
-const CalendarMain = () => {
-    return (
-        <div className={styles.layout}>
-        <Header/>
-  
-          <main className={styles.main}>
-            <div>
-            <Sidebar />
-            </div>
-          </main>
-  
-        <Footer/>
-      </div>
-    );
+const CalendarMain = (props: {
+  children: React.ReactNode
+}) => {
+  return (
+    <div className={styles.layout}>
+      <Header/>
+
+        <main className={styles.main}>
+          <Sidebar />
+          {props.children}
+        </main>
+
+      <Footer/>
+    </div>
+  );
 };
 
 export default CalendarMain;
