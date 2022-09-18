@@ -3,7 +3,7 @@ import Header from "./header/Header";
 import Footer from "./footer/Footer";
 import styles from './Main.module.css'
 import Sidebar from './sidebar/Sidebar'
-import Group from './body/group/Group'
+import Group from './body/Body'
 
 const TogetherMain = (props: {
   children: React.ReactNode
