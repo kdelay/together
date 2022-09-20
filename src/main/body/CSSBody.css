@@ -1,19 +1,15 @@
 .card-body {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: 1.2fr 1fr;
     gap: 10px 10px;
 }
 
 .card-body2 {
     display: grid;
-    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-columns: 0.7fr 2fr;
     gap: 10px 10px;
     margin-top: 10px;
 }
-
-/* .card-group {
-    padding: 5px;
-} */
 
 .main-body {
     padding: 30px;

@@ -7,7 +7,6 @@ import { BsHouseDoorFill } from "react-icons/bs";
 import { FaThList } from "react-icons/fa";
 import { FaCalendarAlt } from "react-icons/fa";
 import { GrGallery } from "react-icons/gr";
-import { MdGroup } from "react-icons/md";
 import "./CSSDropdown.css";
 
 const Side = styled.div`
@@ -31,7 +30,6 @@ function Sidebar() {
     { name: "미션", path: "/mission", img: <FaThList /> },
     { name: "캘린더", path: "/calendar", img: <FaCalendarAlt /> },
     { name: "갤러리", path: "/gallery", img: <GrGallery /> },
-    { name: "그룹원", path: "/group", img: <MdGroup /> },
   ];
   return (
     <Side id="sidebar">

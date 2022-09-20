@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./Header.module.css";
-import {FaBell} from 'react-icons/fa'
 import {BsPersonCircle} from 'react-icons/bs'
 
 
@@ -18,8 +17,6 @@ const Header = () => {
 
         <nav className={styles.navigation}>
           <ul>
-            <li><FaBell/></li>
-
             <li><BsPersonCircle/></li>
           </ul>
         </nav>
