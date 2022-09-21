@@ -3,20 +3,19 @@ import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import styles from '../Main.module.css'
 import Sidebar from '../sidebar/Sidebar'
+import CalendarBody from "./CalendarBody";
 
-const CalendarMain = (props: {
-  children: React.ReactNode
-}) => {
+const CalendarMain = () => {
   return (
     <div className={styles.layout}>
-      <Header/>
+      <Header />
 
-        <main className={styles.main}>
-          <Sidebar />
-          {props.children}
-        </main>
+      <main className={styles.main}>
+        <Sidebar />
+        <CalendarBody />
+      </main>
 
-      <Footer/>
+      <Footer />
     </div>
   );
 };
