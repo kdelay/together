@@ -19,8 +19,8 @@ function Group() {
     <div className="main-body">
       <h4>꿈과 희망이 넘치는 1003호</h4>
       <div className="card-body">
-      {/* ------------- 달성 뱃지 ------------- */}
-      <Card id="card-group5">
+        {/* ------------- 달성 뱃지 ------------- */}
+        <Card id="card-group5">
           <Card.Header as="h6">
             달성 뱃지<button>이동</button>
           </Card.Header>
@@ -28,12 +28,12 @@ function Group() {
             <Card id="card-group5-1">
               <Card.Header as="h6">미션의 첫 발걸음</Card.Header>
               <Card.Body>
-                
+
                 <div>
-                <img src={Badge1} width='100' height='100' alt=''/>
+                  <img src={Badge1} width='100' height='100' alt='' />
                 </div>
                 <p>미션 등록</p>
-                </Card.Body>
+              </Card.Body>
             </Card>
           </Card.Body>
         </Card>
@@ -63,7 +63,7 @@ function Group() {
                     김지연, 이수빈
                   </Form.Control.Feedback>
 
-                  <hr />
+                  <p></p>
 
                   <Form.Check.Input isValid />
                   <span>카페 - 빽다방</span>
@@ -71,7 +71,7 @@ function Group() {
                     김지연, 이수빈, 한은진
                   </Form.Control.Feedback>
 
-                  <hr />
+                  <p></p>
 
                   <Form.Check.Input isValid />
                   <span>저녁 먹기 - 고기</span>
@@ -106,8 +106,8 @@ function Group() {
 
 
       <div className="card-body2">
-      {/* ------------- 미션 ------------- */}
-      <Card id="card-group1">
+        {/* ------------- 미션 ------------- */}
+        <Card id="card-group1">
           <Card.Header as="h6">
             미션<button>이동</button>
           </Card.Header>
@@ -115,32 +115,32 @@ function Group() {
             <Card.Text>
               <Form.Check.Input isValid />
               <span>9월 1번 만나기</span>
-              <hr />
+              <p></p>
               <Form.Check.Input isValid />
               <span>9월 2번 만나기</span>
-              <hr />
+              <p></p>
               <Form.Check.Input isValid />
               <span>9월 3번 만나기</span>
             </Card.Text>
           </Card.Body>
         </Card>
-        
+
         {/* ------------- 갤러리 ------------- */}
         <Card id="card-group6">
           <Card.Header as="h6">
             갤러리<button>이동</button>
           </Card.Header>
           <Card.Body>
-          <img
-        src='https://mdbootstrap.com/img/new/standard/city/044.webp'
-        className='img-fluid rounded'
-        alt='example'
-      />
-        <img
-      src='https://mdbootstrap.com/img/new/standard/city/043.webp'
-      className='img-fluid hover-shadow'
-      alt=''
-    />
+            <img
+              src='https://mdbootstrap.com/img/new/standard/city/044.webp'
+              className='img-fluid rounded'
+              alt='example'
+            />
+            <img
+              src='https://mdbootstrap.com/img/new/standard/city/043.webp'
+              className='img-fluid hover-shadow'
+              alt=''
+            />
           </Card.Body>
         </Card>
       </div>

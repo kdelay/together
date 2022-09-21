@@ -1,70 +1,58 @@
-import React, { usdState, useEffect } from 'react';
-import Axios from 'axios';
-import { useState } from 'react';
+import React, { useState, useEffect } from "react";
+import Axios from "axios";
 
 const CalendarBody = () => {
     const [calendarList, setCalendarList] = useState([])
+    const overlapRemove = [];
 
     useEffect(() => {
-        Axios.get("/api/calendarList").then((response) => {
-            setCalendarList(response.data);
-        })
-    }, [])
+        async function calendarList() {
+            await Axios.get("/api/calendarList").then((response) => {
+                setCalendarList(response.data)
+            })
+        }
+        calendarList();
+
+    }, []);
+
+    const DataOverlapDel = (date, title, contents) => {
+        if (overlapRemove.some(v => v === date)) {
+            return (
+                <div>
+                    <div>제목 : {title}</div>
+                    <div>내용 : {contents}</div>
+                </div>
+            )
+        } else {
+            overlapRemove.push(date)
+            return (
+                <div>
+                    {date}
+                    <div>제목 : {title}</div>
+                    <div>내용 : {contents}</div>
+                </div>
+            )
+        }
+
+    }
 
     return (
         <div>
-            <div>
-                <h6>2022-09-21</h6>
-                {calendarList
-                    .filter((x) =>
-                        x.calDate === '2022-09-21')
-                    .map((x) => (
-                        <div key={x.id}>
+            {
+                calendarList.map((data) => (
+                    <div key={data.id}>
+                        {
+                            DataOverlapDel(data.calDate, data.calTitle, data.calContents)
 
-                            <div>
-                                {x.calTitle}
-                                |
-                                {x.calContents}
-                            </div>
-                        </div>
-                    ))}
-            </div>
-            <p></p>
-            <div>
-                <h6>2022-09-22</h6>
-                {calendarList
-                    .filter((x) =>
-                        x.calDate === '2022-09-22')
-                    .map((x) => (
-                        <div key={x.id}>
+                        }
+                    </div>
+                ))
+            }
 
-                            <div>
-                                {x.calTitle}
-                                |
-                                {x.calContents}
-                            </div>
-                        </div>
-                    ))}
-            </div>
-            <p></p>
-            <div>
-                <h6>2022-09-23</h6>
-                {calendarList
-                    .filter((x) =>
-                        x.calDate === '2022-09-23')
-                    .map((x) => (
-                        <div key={x.id}>
+            {console.log('중복 제거:' + overlapRemove)}
+        </div>
+    )
+}
 
-                            <div>
-                                {x.calTitle}
-                                |
-                                {x.calContents}
-                            </div>
-                        </div>
-                    ))}
-            </div>
-        </div >
-    );
-};
 
 export default CalendarBody;
