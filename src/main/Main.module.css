@@ -8,3 +8,9 @@
     grid-template-columns: auto;
     display: flex;
 }
+
+.flex {
+    /* display: flex; */
+    /* float: left; */
+    justify-content: flex-start;
+}

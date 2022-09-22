@@ -5,9 +5,11 @@ const CalendarBody = () => {
   const [calendarList, setCalendarList] = useState([]);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [date, setDate] = useState("2022-09-21");
+  const [date, setDate] = useState('');
   const [click, setClick] = useState(true);
-  const abc = [];
+  const saveDate = [];
+
+  // const [day, setDate] = useState(new Date());
 
   useEffect(() => {
     async function calendarList() {
@@ -19,18 +21,18 @@ const CalendarBody = () => {
   }, [click]);
 
   const DataOverlapDel = (date, title, content) => {
-    if (abc.some((v) => v === date)) {
-      console.log("안너짐");
+    if (saveDate.some((v) => v === date)) {
+      console.log("입력중");
       return (
-        <div>
+        <div className='flex'>
           <div>제목 : {title}</div>
           <div>내용 : {content}</div>
         </div>
       );
     } else {
-      abc.push(date);
+      saveDate.push(date);
       return (
-        <div>
+        <div className='flex'>
           {date}
           <div>제목 : {title}</div>
           <div>내용 : {content}</div>
@@ -52,12 +54,22 @@ const CalendarBody = () => {
       setClick(true);
     }
 
+    setDate("");
     setTitle("");
     setContent("");
+
   };
   return (
     <div>
-      <div>
+      <div className='flex'> 
+
+      <p>날짜</p>
+        <input
+          type="text"
+          className="title"
+          value={date}
+          onChange={({ target: { value } }) => setDate(value)}
+        />
         <p>제목</p>
         <input
           type="text"
@@ -75,13 +87,21 @@ const CalendarBody = () => {
         <button onClick={(e) => ontext(date, title, content)}>작성</button>
       </div>
 
+      <div className='flex'>
       {calendarList.map((data) => (
         <div key={data.id}>
           {DataOverlapDel(data.calDate, data.calTitle, data.calContents)}
         </div>
       ))}
+      </div>
 
-      {console.log("abc:" + abc)}
+      {/* {calendarList.map((data) => (
+        <div key={data.id}>
+          {data.calDate}
+        </div>
+      ))} */}
+
+      {console.log("저장 날짜:" + saveDate)}
     </div>
   );
 };
