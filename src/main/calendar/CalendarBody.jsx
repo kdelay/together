@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 
 const CalendarBody = () => {
-  const [calendarlist, setCalendarList] = useState([]);
+  const [calendarList, setCalendarList] = useState([]);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [date, setDate] = useState("2022-09-21");
@@ -10,12 +10,12 @@ const CalendarBody = () => {
   const abc = [];
 
   useEffect(() => {
-    async function calendarlist() {
-      await Axios.get("/api/calendarlist").then((response) => {
+    async function calendarList() {
+      await Axios.get("/api/calendarList").then((response) => {
         setCalendarList(response.data);
       });
     }
-    calendarlist();
+    calendarList();
   }, [click]);
 
   const DataOverlapDel = (date, title, content) => {
@@ -39,7 +39,7 @@ const CalendarBody = () => {
     }
   };
   const ontext = async (date, title, content) => {
-    const result = await Axios.post("/api/calendarlist2", {
+    const result = await Axios.post("/api/calendarList2", {
       calDate: date,
       calTitle: title,
       calContents: content,
@@ -75,7 +75,7 @@ const CalendarBody = () => {
         <button onClick={(e) => ontext(date, title, content)}>작성</button>
       </div>
 
-      {calendarlist.map((data) => (
+      {calendarList.map((data) => (
         <div key={data.id}>
           {DataOverlapDel(data.calDate, data.calTitle, data.calContents)}
         </div>
