@@ -133,3 +133,32 @@
 .margin-top1 {
   margin-top: 50px;
 }
+
+.box {
+  margin-top: 15px;
+  width: 500px;
+  /* height: 100px; */
+  background-color: white;
+  border-top: solid 2px #363062;
+  /* display: flex; */
+  /* display: inline-block; */
+}
+
+.newline {
+  white-space: pre-line;
+}
+
+.date {
+  font-size: 25px;
+  background-color: #E9D5DA;
+}
+
+.design1 {
+  background-color: #75737c;
+  width: 500px;
+  height: 2px;
+}
+
+.flex {
+  display: flex;
+}

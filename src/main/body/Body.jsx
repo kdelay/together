@@ -5,6 +5,8 @@ import "./CSSBody.css";
 import BodyCalendar from "./calendar/BodyCalendar";
 import Form from "react-bootstrap/Form";
 import Badge1 from '../img/badge1.png'
+import { Link } from 'react-router-dom';
+import {BsArrowRightCircle} from "react-icons/bs"
 
 function Group() {
   var today = new Date();
@@ -22,7 +24,7 @@ function Group() {
         {/* ------------- 달성 뱃지 ------------- */}
         <Card id="card-group5">
           <Card.Header as="h6">
-            달성 뱃지<button>이동</button>
+            달성 뱃지
           </Card.Header>
           <Card.Body>
             <Card id="card-group5-1">
@@ -41,9 +43,12 @@ function Group() {
 
         {/* ------------- 캘린더 ------------- */}
         <Card id="card-group2">
-          <Card.Header as="h6">
-            캘린더<button>이동</button>
+        <Link to='/calendar' style={{ textDecoration: 'none' }}>
+          <Card.Header as="h6" >
+            <h5 style={{color:'black'}} className='link-header'>캘린더 <BsArrowRightCircle size='20' color='black'/></h5>
+            
           </Card.Header>
+            </Link>
           <Card.Body>
             <Card.Text>
               <BodyCalendar />
@@ -52,7 +57,7 @@ function Group() {
             {/* ------------- 오늘의 일정 ------------- */}
             <Card id="card-group2-1">
               <Card.Header as="h6">
-                오늘의 일정<button>이동</button>
+                오늘의 일정
               </Card.Header>
               <Card.Body>
                 <Card.Title>{dateString}</Card.Title>
@@ -87,7 +92,7 @@ function Group() {
         {/* ------------- 오늘의 미션 ------------- */}
         <Card id="card-group3">
           <Card.Header as="h6">
-            오늘의 미션<button>이동</button>
+            오늘의 미션
           </Card.Header>
           <Card.Body>
             <Card id="card-group5-1">
@@ -109,7 +114,7 @@ function Group() {
         {/* ------------- 미션 ------------- */}
         <Card id="card-group1">
           <Card.Header as="h6">
-            미션<button>이동</button>
+          <h5 style={{color:'black'}} className='link-header'>미션 <BsArrowRightCircle size='20' color='black'/></h5>
           </Card.Header>
           <Card.Body>
             <Card.Text>
@@ -128,7 +133,7 @@ function Group() {
         {/* ------------- 갤러리 ------------- */}
         <Card id="card-group6">
           <Card.Header as="h6">
-            갤러리<button>이동</button>
+          <h5 style={{color:'black'}} className='link-header'>갤러리 <BsArrowRightCircle size='20' color='black'/></h5>
           </Card.Header>
           <Card.Body>
             <img

@@ -18,3 +18,11 @@
 #card-group2 {
     grid-row: 1 / span 2;
 }
+
+.t-b {
+    color: black;
+}
+
+.link-header:hover {
+    background-color: #E9D5DA;
+}

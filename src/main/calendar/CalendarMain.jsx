@@ -4,7 +4,7 @@ import Footer from "../footer/Footer";
 import styles from "../Main.module.css";
 import Sidebar from "../sidebar/Sidebar";
 import CalendarBody from "./CalendarBody";
-import Calendar from "../body/calendar/BodyCalendar";
+// import Calendar from "../body/calendar/BodyCalendar";
 import "./Calendar.css";
 
 const CalendarMain = () => {
@@ -14,10 +14,10 @@ const CalendarMain = () => {
 
       <main className={styles.main}>
         <Sidebar />
-        <span className="margin-top flex">
-          <Calendar />
-        </span>
+        {/* <span className="margin-top flex"> */}
+        {/* </span> */}
         <div className="margin-top1 margin-left1">
+          {/* <Calendar /> */}
           <CalendarBody />
         </div>
       </main>
