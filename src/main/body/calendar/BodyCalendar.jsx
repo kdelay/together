@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Axios from 'axios';
 import Calendar from 'react-calendar';
 // import 'react-calendar/dist/Calendar.css';
 import moment from "moment";
@@ -6,9 +7,9 @@ import moment from "moment";
 const BodyCalendar = () => {
   const [value, onChange] = useState(new Date());
 
-  const marks = [
-    // "21-09-2022",
-  ];
+  const marks = [];
+
+  
 
   return (
     <div>
