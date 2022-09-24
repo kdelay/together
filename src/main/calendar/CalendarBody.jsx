@@ -38,7 +38,6 @@ const CalendarBody = () => {
         <div>
           <div className="box">
             <div className='date'>{date}</div>
-            
             <div>제목 : {title}</div>
             <div>내용 : {content}</div>
             <hr className='design1'/>

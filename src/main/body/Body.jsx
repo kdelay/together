@@ -17,14 +17,14 @@ function Group() {
   var day = ("0" + today.getDate()).slice(-2);
 
   var dateString = year + "-" + month + "-" + day;
-  const [value, onChange] = useState(new Date());
+  // const [value, onChange] = useState(new Date());
 
   const [calendarList, setCalendarList] = useState([]);
   // const [title, setTitle] = useState("");
   // const [content, setContent] = useState("");
   // const [date, setDate] = useState("");
   const [click, setClick] = useState(true);
-  // const saveDate = [];
+  const saveDate = [];
 
   // get 방식
   useEffect(() => {
@@ -36,20 +36,27 @@ function Group() {
     calendarList();
   }, [click]);
 
-  const DataOverlapDel = (date, title, content) => {
-    if ({ date } === {dateString}) {
-        return (
-          <div>
-            {/* <div className="box"> */}
-              <div className="date">{date}</div>
-              <div>제목 : {title}</div>
-              <div>내용 : {content}</div>
-              <hr className="design1" />
-            {/* </div> */}
-          </div>
-        );
+  
+
+  const DataOverlapDel = (date, title) => {
+    if( saveDate.some((v) => v === date) ) {
+      return (
+        <ul>
+            <li>{title}</li>
+        </ul>
+      );
+    } else {
+      saveDate.push(date);
+      return (
+        <div>
+          <ul>
+            <div style={{backgroundColor: 'lightgray', width: '100px'}}>{date}</div>
+            <li>{title}</li>
+          </ul>
+        </div>
+      );
       }
-    };
+  }
 
   return (
     <div className="main-body">
@@ -85,24 +92,43 @@ function Group() {
               <BodyCalendar />
             </Card.Text>
 
-            {/* ------------- 오늘의 일정 ------------- */}
+            {/* ------------- 전체 일정 ------------- */}
             <Card id="card-group2-1">
-              <Card.Header as="h6">오늘의 일정</Card.Header>
+              <Card.Header as="h6">전체 일정</Card.Header>
               <Card.Body>
                 {/* <Card.Title>{dateString}</Card.Title> */}
                 <Card.Text>
-                  {dateString}
-                  <div>
-                    {calendarList.map((data) => (
-                      <div key={data.id}>
-                        {DataOverlapDel(
-                          data.calDate,
-                          data.calTitle,
-                          data.calContents
-                        )}
-                      </div>
-                    ))}
+                  {/* {dateString} */}
+                  <div style={{color:'black'}}>
+
+                    <div>
+                      {calendarList.map((data) => (
+                        <div key={data.id}>
+                          {DataOverlapDel(
+                            data.calDate,
+                            data.calTitle
+                          )}
+                        </div>
+                      ))}
+                    </div>
+
+
+
+
+
                   </div>
+                    {/* <div>{DataOverlapDel()}</div> */}
+                    {/* {{calendarList.map((data) => (
+                      <ul key={data.id}> */}
+                        {/* {DataOverlapDel()} */}
+                        {/* {DataOverlapDel(
+                          data.calDate, data.calTitle)} */}
+                          {/* data.calDate, */}
+                          {/* <li>{data.calTitle}</li> */}
+                          {/* {data.calContents} */}
+                        {/* )} */}
+                      {/* </ul> */}
+                    {/* ))} */}
                 </Card.Text>
               </Card.Body>
             </Card>
