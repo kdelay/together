@@ -1,0 +1,33 @@
+.box1 {
+    /* display: flex; */
+    flex-direction: column;
+    background-color: white;
+    border: solid 1px black;
+    border-radius: 12px;
+    width: 350px;
+    height: 100px;
+    margin: 100px;
+}
+
+.box2 {
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    border: solid 1px #4D4C7D;
+    border-radius: 12px;
+    width: 500px;
+    height: 100px;
+    /* margin: 100px; */
+}
+
+.m-t {
+    margin-top: 100px;
+}
+
+
+.m-t-2 {
+    margin-top: 270px;
+}
+
+.m-l {
+    margin-left: 100px;
+}

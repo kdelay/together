@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Header.module.css";
 import { BsPersonCircle } from "react-icons/bs";
 import Modal from "react-bootstrap/Modal";
