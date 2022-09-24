@@ -2,12 +2,9 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import SidebarItem from "./SidebarItem";
-import Dropdown from "./Dropdown";
 import { BsHouseDoorFill } from "react-icons/bs";
-import { FaThList } from "react-icons/fa";
-import { FaCalendarAlt } from "react-icons/fa";
+import { FaThList, FaCalendarAlt } from "react-icons/fa";
 import { GrGallery } from "react-icons/gr";
-import "./CSSDropdown.css";
 
 const Side = styled.div`
   display: flex;
@@ -33,7 +30,8 @@ function Sidebar() {
   ];
   return (
     <Side id="sidebar">
-      <Dropdown />
+      {/* <Dropdown /> */}
+      <div className='round-div'><h6 style={{marginTop:'10px'}}>1003호</h6></div>
       <Menu>
         {menus.map((menu, index) => {
           return (

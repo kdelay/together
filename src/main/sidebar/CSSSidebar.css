@@ -6,3 +6,17 @@
     margin: 0 auto;
     align-items: center;
 }
+
+.sidebar-item:hover {
+    background-color: #E9D5DA;
+}
+
+.round-div {
+    background-color: lightgray;
+    border: solid 1px black;
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    margin-top: 20px;
+}

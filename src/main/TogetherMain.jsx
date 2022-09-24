@@ -5,9 +5,7 @@ import styles from './Main.module.css'
 import Sidebar from './sidebar/Sidebar'
 import Body from './body/Body'
 
-const TogetherMain = (props: {
-  children: React.ReactNode
-}) => {
+const TogetherMain = () => {
   return (
     <div className={styles.layout}>
       <Header/>
@@ -15,7 +13,6 @@ const TogetherMain = (props: {
         <main className={styles.main}>
           <Sidebar />
           <Body/>
-          {props.children}
         </main>
 
       <Footer/>
