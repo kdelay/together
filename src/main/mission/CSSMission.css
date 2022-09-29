@@ -1,22 +1,41 @@
+@font-face {
+    font-family: 'GangwonEduPowerExtraBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+div {
+    font-family: GangwonEduPowerExtraBoldA;
+}
+
 .box1 {
-    /* display: flex; */
+    display: flex;
     flex-direction: column;
     background-color: white;
-    border: solid 1px black;
-    border-radius: 12px;
+    border: dashed 2px #4D4C7D;
+    border-radius: 15px;
     width: 350px;
     height: 100px;
-    margin: 100px;
+    /* margin: 100px; */
 }
 
 .box2 {
-    display: flex;
+    /* display: flex; */
     background-color: rgb(255, 255, 255);
-    border: solid 1px #4D4C7D;
+    border: solid 1px #363062;
     border-radius: 12px;
     width: 500px;
-    height: 100px;
+    height: 300px;
     /* margin: 100px; */
+}
+
+.box3 {
+    background-color: rgb(255, 255, 255);
+    border: solid 1px #363062;
+    border-radius: 12px;
+    width: 700px;
+    height: 150px;
 }
 
 .m-t {
@@ -30,4 +49,19 @@
 
 .m-l {
     margin-left: 100px;
+}
+
+.white-space {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 30px;
+}
+
+.flex {
+    display: flex;
+}
+
+.img-size {
+    width: 100px;
+    height: 100px;
 }
