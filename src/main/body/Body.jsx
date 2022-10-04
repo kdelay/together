@@ -9,7 +9,7 @@ import Badge1 from "../img/badge1.png";
 import { Link } from "react-router-dom";
 import { BsArrowRightCircle } from "react-icons/bs";
 
-function Group() {
+function Body() {
   var today = new Date();
 
   var year = today.getFullYear();
@@ -64,15 +64,15 @@ function Group() {
       <div className="card-body">
         {/* ------------- 달성 뱃지 ------------- */}
         <Card id="card-group5">
-          <Card.Header as="h6">달성 뱃지</Card.Header>
+          <Card.Header>달성 뱃지</Card.Header>
           <Card.Body>
             <Card id="card-group5-1">
-              <Card.Header as="h6">미션의 첫 발걸음</Card.Header>
+              <Card.Header>미션의 첫 발걸음</Card.Header>
               <Card.Body>
                 <div>
                   <img src={Badge1} width="100" height="100" alt="" />
                 </div>
-                <p>미션 등록</p>
+                <h6>미션 등록</h6>
               </Card.Body>
             </Card>
           </Card.Body>
@@ -81,26 +81,22 @@ function Group() {
         {/* ------------- 캘린더 ------------- */}
         <Card id="card-group2">
           <Link to="/calendar" style={{ textDecoration: "none" }}>
-            <Card.Header as="h6">
+            <Card.Header>
               <h5 style={{ color: "black" }} className="link-header">
                 캘린더 <BsArrowRightCircle size="20" color="black" />
               </h5>
             </Card.Header>
           </Link>
           <Card.Body>
-            <Card.Text>
-              <BodyCalendar />
-            </Card.Text>
+
+            {/* 캘린더 */}
+          <BodyCalendar />
 
             {/* ------------- 전체 일정 ------------- */}
             <Card id="card-group2-1">
-              <Card.Header as="h6">전체 일정</Card.Header>
+              <Card.Header>전체 일정</Card.Header>
               <Card.Body>
-                {/* <Card.Title>{dateString}</Card.Title> */}
-                <Card.Text>
-                  {/* {dateString} */}
                   <div style={{color:'black'}}>
-
                     <div>
                       {calendarList.map((data) => (
                         <div key={data.id}>
@@ -111,25 +107,7 @@ function Group() {
                         </div>
                       ))}
                     </div>
-
-
-
-
-
                   </div>
-                    {/* <div>{DataOverlapDel()}</div> */}
-                    {/* {{calendarList.map((data) => (
-                      <ul key={data.id}> */}
-                        {/* {DataOverlapDel()} */}
-                        {/* {DataOverlapDel(
-                          data.calDate, data.calTitle)} */}
-                          {/* data.calDate, */}
-                          {/* <li>{data.calTitle}</li> */}
-                          {/* {data.calContents} */}
-                        {/* )} */}
-                      {/* </ul> */}
-                    {/* ))} */}
-                </Card.Text>
               </Card.Body>
             </Card>
           </Card.Body>
@@ -137,7 +115,7 @@ function Group() {
 
         {/* ------------- 오늘의 미션 ------------- */}
         <Card id="card-group3">
-          <Card.Header as="h6">오늘의 미션</Card.Header>
+          <Card.Header>오늘의 미션</Card.Header>
           <Card.Body>
             <Card id="card-group5-1">
               <Card.Header as="h6">{dateString}</Card.Header>
@@ -155,7 +133,7 @@ function Group() {
       <div className="card-body2">
         {/* ------------- 미션 ------------- */}
         <Card id="card-group1">
-          <Card.Header as="h6">
+          <Card.Header>
             <h5 style={{ color: "black" }} className="link-header">
               미션 <BsArrowRightCircle size="20" color="black" />
             </h5>
@@ -164,10 +142,8 @@ function Group() {
             <Card.Text>
               <Form.Check.Input isValid />
               <span>9월 1번 만나기</span>
-              <p></p>
               <Form.Check.Input isValid />
               <span>9월 2번 만나기</span>
-              <p></p>
               <Form.Check.Input isValid />
               <span>9월 3번 만나기</span>
             </Card.Text>
@@ -176,7 +152,7 @@ function Group() {
 
         {/* ------------- 갤러리 ------------- */}
         <Card id="card-group6">
-          <Card.Header as="h6">
+          <Card.Header>
             <h5 style={{ color: "black" }} className="link-header">
               갤러리 <BsArrowRightCircle size="20" color="black" />
             </h5>
@@ -199,4 +175,4 @@ function Group() {
   );
 }
 
-export default Group;
+export default Body;

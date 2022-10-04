@@ -30,7 +30,7 @@ const ImgUploadTest = () => {
   const submitImg = async () => {
     let formData = new FormData();
     formData.append("file", file); // key가 'file'인 데이터를 file에 추가한다.
-    const response = await Axios.post("/api/Gallery", formData, {
+    const response = await Axios.post("/api/gallery333", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
