@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
@@ -13,9 +13,10 @@ const GalleryMain = () => {
   const [files, setFiles] = useState(''); // 파일 추가
   const [title, setTitle] = useState(""); // 제목
   const [content, setContent] = useState(""); // 내용
+  
+  // const fileUniqueName = []; // 고유값을 저장해둘 배열
 
   const [imageUrl, setImageUrl] = useState(null);
-  // const imgRef = useRef();
 
   useEffect(() => {
     async function galleryList() {
@@ -52,7 +53,14 @@ const GalleryMain = () => {
       }
     });
     console.log(response);
-    alert(response.data); // response로 온 data를 경고창으로 띄운다.
+    // console.log(files);
+    // fileUniqueName.push(response.data); // 이미지 고유 값이 배열에 추가된다.
+    // console.log(fileUniqueName);
+
+    alert("추가되었습니다.");
+
+    console.log(galleryList);
+    console.log(galleryList.fileUniqueName);
 
     if (click) {
       setClick(false);
@@ -65,6 +73,34 @@ const GalleryMain = () => {
     setContent("");
     setImageUrl("");
   };
+
+  const delButton = async (fileUniqueName) => {
+
+    console.log(galleryList[0].fileUniqueName);
+    console.log(fileUniqueName);
+
+    if(window.confirm("삭제하시겠습니까?")) {
+      for(let i = 0; i< galleryList.length; i++) {
+        if(galleryList[i].fileUniqueName === fileUniqueName) {
+          // galleryList.splice(i, 1);
+          const response = await Axios.post(`/api/galleryListDel/${fileUniqueName}`)
+          // const response = await Axios.post("/api/galleryListDel")
+          console.log(response);
+        }
+      
+        if (click) {
+          setClick(false);
+        } else {
+          setClick(true);
+        }
+      }
+
+      alert("삭제되었습니다.");
+    }
+    else {
+      alert("취소되었습니다.");
+    }
+  }
 
   return (
     <div className={styles.layout}>
@@ -124,6 +160,9 @@ const GalleryMain = () => {
                 <img src={`http://localhost:80/api/galleryListGet/${data.fileUniqueName}.jpg`} />
                 <h1 className="m-l-20">{data.fileTitle}</h1>
                 <h3 className="m-l-20">{data.fileContent}</h3>
+
+                {/* 삭제 버튼 */}
+                <button onClick={(() => delButton(data.fileUniqueName))} style={{float:'right', marginRight:'20px', marginBottom:'10px'}}>삭제하기</button>
               </div>
             ))}
           </div>
