@@ -16,7 +16,7 @@ const MissionMain = () => {
     async function missionList() {
       await Axios.get("/api/missionList").then((response) => {
         setMissionList(response.data);
-        console.log(response.data);
+        console.log(response);
       });
     }
     missionList();
@@ -31,6 +31,16 @@ const MissionMain = () => {
     setMember(e.target.value);
     console.log(e.target.value);
 
+  }
+
+  const handleCheckbox = (e) => {
+    console.log(e.target.checked);
+    if(e.target.checked) {
+      alert("축하드립니다! 미션 성공!")
+    }
+    else {
+      alert("취소되었습니다.")
+    }
   }
 
   const delButton = (realId) => {
@@ -93,7 +103,7 @@ const MissionMain = () => {
           <h1>미션</h1>
           <div className="box1">
             <h2 className="m-t-30 m-l-20">
-              전체 미션 수 <span className="text-color">2</span>
+              전체 미션 수 <span className="text-color">{missionList.length}</span>
             </h2>
           </div>
 
@@ -128,6 +138,7 @@ const MissionMain = () => {
                     <input
                       type="checkbox"
                       className="m-l-20 m-t-20 checkbox-size"
+                      onClick={(e) => handleCheckbox(e)}
                     />
                     <div className="m-t-30 m-l-20">
                       <h4>{data.miTitle}</h4>
