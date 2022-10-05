@@ -105,6 +105,19 @@
     height: 50px;
     font-size: 20px;
     border-radius: 10px;
+    transition: all 0.2s linear;
+}
+
+.add-btn:hover {
+    transform: scale(1.1);
+}
+
+.del-btn {
+    width: 50px;
+    height: 30px;
+    margin-top: 40px;
+    margin-right: 5px;
+    border-radius: 10px;
 }
 
 .add-box {

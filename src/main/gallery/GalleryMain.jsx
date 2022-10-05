@@ -5,7 +5,7 @@ import Footer from "../footer/Footer";
 import styles from "../Main.module.css";
 import Sidebar from "../sidebar/Sidebar";
 import "./CSSGallery.css";
-import TestImg from "../img/badge1.png";
+// import TestImg from "../img/badge1.png";
 
 const GalleryMain = () => {
   const [galleryList, setGalleryList] = useState([]); // 저장한 이미지, 제목, 내용 정보들
@@ -123,7 +123,7 @@ const GalleryMain = () => {
               >
                 <div className="img-upload">
                   {/* 사진 미리보기 */}
-                  <img src={imageUrl} id="cimg"></img>
+                  <img src={imageUrl} id="cimg" alt=""></img>
                   <span>+</span>
                 </div>
               </label>
@@ -157,7 +157,7 @@ const GalleryMain = () => {
               <div key={data.fileUniqueName} className="img-card">
                 {/* <img src={`http://localhost:80/api/galleryListGet/c2f67e12.jpg`}/> */}
 
-                <img src={`http://localhost:80/api/galleryListGet/${data.fileUniqueName}.jpg`} />
+                <img src={`http://localhost:80/api/galleryListGet/${data.fileUniqueName}.jpg`} alt=""/>
                 <h1 className="m-l-20">{data.fileTitle}</h1>
                 <h3 className="m-l-20">{data.fileContent}</h3>
 

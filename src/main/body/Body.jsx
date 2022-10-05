@@ -17,13 +17,9 @@ function Body() {
   var day = ("0" + today.getDate()).slice(-2);
 
   var dateString = year + "-" + month + "-" + day;
-  // const [value, onChange] = useState(new Date());
 
   const [calendarList, setCalendarList] = useState([]);
-  // const [title, setTitle] = useState("");
-  // const [content, setContent] = useState("");
-  // const [date, setDate] = useState("");
-  const [click, setClick] = useState(true);
+  const [click] = useState(true);
   const saveDate = [];
 
   // get 방식

@@ -15,12 +15,70 @@ const MissionMain = () => {
   useEffect(() => {
     async function missionList() {
       await Axios.get("/api/missionList").then((response) => {
-        console.log(response.data);
         setMissionList(response.data);
+        console.log(response.data);
       });
     }
     missionList();
   }, [click]);
+
+  const handleInputTitle = (e) => {
+    setTitle(e.target.value)
+    console.log(e.target.value);
+  }
+
+  const handleInputMember = (e) => {
+    setMember(e.target.value);
+    console.log(e.target.value);
+
+  }
+
+  const delButton = (realId) => {
+    // console.log(missionList[0].id);
+    // console.log(realId);
+
+    if(window.confirm("삭제하시겠습니까?")) {
+      for(let i=0; i<missionList.length; i++) {
+        if(missionList[i].id === realId) {
+          const response = Axios.post(`/api/missionListDel/${realId}`);
+          console.log(response);
+        }
+      }
+
+      alert("삭제되었습니다.");
+    }
+    else {
+      alert("취소되었습니다.");
+    }
+
+    
+    if (click) {
+      setClick(false);
+    } else {
+      setClick(true);
+    }
+  }
+
+  // post 방식
+  const ontext = async(title, member) => {
+    const result = await Axios.post("/api/missionList2", {
+      miTitle: title,
+      miMember: member,
+    });
+    console.log(result);
+    alert(result.data);
+
+    if(click) {
+      setClick(false);
+    }
+    else{
+      setClick(true);
+    }
+
+    // 값 전송하고 나면 빈 상태로 바꾸기
+    setTitle("");
+    setMember("");
+  }
 
   return (
     <div className={styles.layout}>
@@ -42,9 +100,21 @@ const MissionMain = () => {
           {/* 미션 추가 */}
           <div className="m-t column">
             <h1>미션 추가하기</h1>
-            <input type="text" className="add-box" placeholder="제목" />
-            <input type="text" className="add-box" placeholder="참여자" />
-            <button className="add-btn">미션 추가</button>
+            <input 
+              type="text" className="add-box" placeholder="제목" 
+              onChange={(e) => handleInputTitle(e)}
+              // onChange={({target:{value}}) => setTitle(value)}
+              />
+            <input 
+              type="text" className="add-box" placeholder="참여자" 
+              onChange={(e) => handleInputMember(e)}
+              // onChange={({target:{value}}) => setMember(value)}
+            />
+            <button 
+              onClick={(e) => ontext(title, member)}
+              className="add-btn">
+                미션 추가
+            </button>
           </div>
 
           {/* 현재 등록한 미션 */}
@@ -60,10 +130,12 @@ const MissionMain = () => {
                       className="m-l-20 m-t-20 checkbox-size"
                     />
                     <div className="m-t-30 m-l-20">
-                      <h4>{data.mtitle}</h4>
-                      <h5>{data.mmember}</h5>
+                      <h4>{data.miTitle}</h4>
+                      <h5>{data.miMember}</h5>
                     </div>
                     <h5 className="check">미완료</h5>
+                    <button onClick={(() => delButton(data.id))}
+                      className="del-btn">삭제</button>
                   </div>
                 </div>
               </div>
@@ -71,6 +143,8 @@ const MissionMain = () => {
           </div>
         </div>
 
+
+        {/* ------ 뱃지 ------ */}
         <div className="white-space">
           <div>
             <h1>달성 뱃지</h1>
@@ -79,6 +153,7 @@ const MissionMain = () => {
                 <img
                   className="badge-size"
                   src={require("../img/no-badge1.png")}
+                  alt=""
                 />
                 <div className="m-t-30">
                   <h3>첫번째 뱃지</h3>
@@ -94,6 +169,7 @@ const MissionMain = () => {
                 <img
                   className="badge-size"
                   src={require("../img/no-badge2.png")}
+                  alt=""
                 />
                 <div className="m-t-30">
                   <h3>두번째 뱃지</h3>
@@ -109,6 +185,7 @@ const MissionMain = () => {
                 <img
                   className="badge-size"
                   src={require("../img/no-badge3.png")}
+                  alt=""
                 />
 
                 <div className="m-t-30">
@@ -125,6 +202,7 @@ const MissionMain = () => {
                 <img
                   className="badge-size"
                   src={require("../img/no-badge4.png")}
+                  alt=""
                 />
                 <div className="m-t-30">
                   <h3>네번째 뱃지</h3>
@@ -140,6 +218,7 @@ const MissionMain = () => {
                 <img
                   className="badge-size"
                   src={require("../img/no-badge5.png")}
+                  alt=""
                 />
                 <div className="m-t-30">
                   <h3>다섯번째 뱃지</h3>
