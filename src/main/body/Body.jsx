@@ -60,7 +60,7 @@ function Body() {
 
   return (
     <div className="main-body">
-      <h4>꿈과 희망이 넘치는 1003호</h4>
+      <h4>투게더, 함께하는 즐거움</h4>
       <div className="card-body">
         {/* ------------- 달성 뱃지 ------------- */}
         <Card id="card-group5">

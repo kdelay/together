@@ -15,7 +15,7 @@ div {
     background-color: white;
     border: dashed 2px #4D4C7D;
     border-radius: 15px;
-    width: 350px;
+    width: 250px;
     height: 100px;
     /* margin: 100px; */
 }
@@ -26,7 +26,7 @@ div {
     border: solid 1px #363062;
     border-radius: 12px;
     width: 500px;
-    height: 300px;
+    height: 100px;
     /* margin: 100px; */
 }
 
@@ -35,7 +35,12 @@ div {
     border: solid 1px #363062;
     border-radius: 12px;
     width: 700px;
-    height: 150px;
+    height: 180px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
 }
 
 .m-t {
@@ -47,8 +52,20 @@ div {
     margin-top: 270px;
 }
 
+.m-t-30 {
+    margin-top: 30px;
+}
+
+.m-b-30 {
+    margin-bottom: 30px;
+}
+
 .m-l {
     margin-left: 100px;
+}
+
+.m-l-20 {
+    margin-left: 20px;
 }
 
 .white-space {
@@ -61,7 +78,39 @@ div {
     display: flex;
 }
 
-.img-size {
+.badge-size {
+    width: 150px;
+    height: 150px;
+    margin-top: 15px;
+}
+
+.text-color {
+    color: #7361c3;
+}
+
+.checkbox-size {
+    width: 30px;
+    height: 30px;
+    margin-top: 40px;
+}
+
+.check {
+    margin: 40px 30px 0 auto;
+    font-size: 25px;
+    color: #4D4C7D;
+}
+
+.add-btn {
     width: 100px;
-    height: 100px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.add-box {
+    width:300px;
+    height: 50px;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 25px;
 }

@@ -31,7 +31,7 @@ function Sidebar() {
   return (
     <Side id="sidebar">
       {/* <Dropdown /> */}
-      <div className='round-div'><h6 style={{marginTop:'10px'}}>1003호</h6></div>
+      <div className='round-div'><h6 style={{marginTop:'10px'}}>투게더</h6></div>
       <Menu>
         {menus.map((menu, index) => {
           return (

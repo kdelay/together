@@ -87,18 +87,18 @@ const GalleryMain = () => {
           // const response = await Axios.post("/api/galleryListDel")
           console.log(response);
         }
-      
-        if (click) {
-          setClick(false);
-        } else {
-          setClick(true);
-        }
       }
 
       alert("삭제되었습니다.");
     }
     else {
       alert("취소되었습니다.");
+    }
+
+    if (click) {
+      setClick(false);
+    } else {
+      setClick(true);
     }
   }
 

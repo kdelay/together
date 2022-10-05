@@ -6,7 +6,7 @@ const Footer = () => {
         <footer className={styles.footer}>
             <div className={styles.contents}>
                 <h2 className={styles.title}>
-                    This is Footer
+                    TOGETHER!
                 </h2>
             </div>
         </footer>
