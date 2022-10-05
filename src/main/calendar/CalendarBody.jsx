@@ -16,6 +16,7 @@ const CalendarBody = () => {
   useEffect(() => {
     async function calendarList() {
       await Axios.get("/api/calendarList").then((response) => {
+        console.log(response.data)
         setCalendarList(response.data);
       });
     }
