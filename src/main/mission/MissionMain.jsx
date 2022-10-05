@@ -6,11 +6,31 @@ import styles from "../Main.module.css";
 import Sidebar from "../sidebar/Sidebar";
 import "./CSSMission.css";
 
+import badge1 from "../img/badge1.png"
+import badge2 from "../img/badge2.png"
+import badge3 from "../img/badge3.png"
+import badge4 from "../img/badge4.png"
+import badge5 from "../img/badge5.png"
+
+import noBadge1 from "../img/no-badge1.png"
+import noBadge2 from "../img/no-badge2.png"
+import noBadge3 from "../img/no-badge3.png"
+import noBadge4 from "../img/no-badge4.png"
+import noBadge5 from "../img/no-badge5.png"
+
 const MissionMain = () => {
   const [missionList, setMissionList] = useState([]);
   const [title, setTitle] = useState("");
   const [member, setMember] = useState("");
   const [click, setClick] = useState(false);
+
+  const [changeImage1, setChangeImage1] = useState(noBadge1);
+  const [changeImage2, setChangeImage2] = useState(noBadge2);
+  const [changeImage3, setChangeImage3] = useState(noBadge3);
+  const [changeImage4, setChangeImage4] = useState(noBadge4);
+  const [changeImage5, setChangeImage5] = useState(noBadge5);
+
+  const [missionCheck, setMissionCheck] = useState(1);
 
   useEffect(() => {
     async function missionList() {
@@ -22,24 +42,62 @@ const MissionMain = () => {
     missionList();
   }, [click]);
 
+
+  // title (제목) input 이벤트
   const handleInputTitle = (e) => {
     setTitle(e.target.value)
     console.log(e.target.value);
   }
 
+  // member (참여자) input 이벤트
   const handleInputMember = (e) => {
     setMember(e.target.value);
     console.log(e.target.value);
 
   }
 
+  // 체크박스 이벤트
   const handleCheckbox = (e) => {
-    console.log(e.target.checked);
+    
     if(e.target.checked) {
+      setMissionCheck(missionCheck+1);
       alert("축하드립니다! 미션 성공!")
+      console.log(missionCheck);
     }
     else {
+      setMissionCheck(missionCheck-1);
       alert("취소되었습니다.")
+      console.log(missionCheck);
+    }
+    console.log(e.target.checked);
+
+    
+  }
+
+  const check = () => {
+    switch(missionCheck) {
+      case 1:
+        setChangeImage1(badge1);
+        break;
+      case 2:
+        setChangeImage2(badge2);
+        break;
+      case 3:
+        setChangeImage3(badge3);
+        break;
+      case 4:
+        setChangeImage4(badge4);
+        break;
+      case 5:
+        setChangeImage5(badge5);
+        break;
+      default:
+        setChangeImage1(noBadge1);
+        setChangeImage2(noBadge2);
+        setChangeImage3(noBadge3);
+        setChangeImage4(noBadge4);
+        setChangeImage5(noBadge5);
+        break;
     }
   }
 
@@ -61,7 +119,6 @@ const MissionMain = () => {
       alert("취소되었습니다.");
     }
 
-    
     if (click) {
       setClick(false);
     } else {
@@ -113,11 +170,13 @@ const MissionMain = () => {
             <input 
               type="text" className="add-box" placeholder="제목" 
               onChange={(e) => handleInputTitle(e)}
+              value={title}
               // onChange={({target:{value}}) => setTitle(value)}
               />
             <input 
               type="text" className="add-box" placeholder="참여자" 
               onChange={(e) => handleInputMember(e)}
+              value={member}
               // onChange={({target:{value}}) => setMember(value)}
             />
             <button 
@@ -138,7 +197,10 @@ const MissionMain = () => {
                     <input
                       type="checkbox"
                       className="m-l-20 m-t-20 checkbox-size"
-                      onClick={(e) => handleCheckbox(e)}
+                      onClick={(e) => (
+                        handleCheckbox(e),
+                        check()
+                      )}
                     />
                     <div className="m-t-30 m-l-20">
                       <h4>{data.miTitle}</h4>
@@ -163,7 +225,7 @@ const MissionMain = () => {
               <div className="flex">
                 <img
                   className="badge-size"
-                  src={require("../img/no-badge1.png")}
+                  src={changeImage1}
                   alt=""
                 />
                 <div className="m-t-30">
@@ -179,7 +241,7 @@ const MissionMain = () => {
               <div className="flex">
                 <img
                   className="badge-size"
-                  src={require("../img/no-badge2.png")}
+                  src={changeImage2}
                   alt=""
                 />
                 <div className="m-t-30">
@@ -195,7 +257,7 @@ const MissionMain = () => {
               <div className="flex">
                 <img
                   className="badge-size"
-                  src={require("../img/no-badge3.png")}
+                  src={changeImage3}
                   alt=""
                 />
 
@@ -212,7 +274,7 @@ const MissionMain = () => {
               <div className="flex">
                 <img
                   className="badge-size"
-                  src={require("../img/no-badge4.png")}
+                  src={changeImage4}
                   alt=""
                 />
                 <div className="m-t-30">
@@ -228,7 +290,7 @@ const MissionMain = () => {
               <div className="flex">
                 <img
                   className="badge-size"
-                  src={require("../img/no-badge5.png")}
+                  src={changeImage5}
                   alt=""
                 />
                 <div className="m-t-30">
