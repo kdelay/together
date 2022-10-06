@@ -32,8 +32,6 @@ const MissionMain = () => {
 
   const [missionCheck, setMissionCheck] = useState(1);
 
-  const [doneText, setDoneText] = useState("미완료");
-
   useEffect(() => {
     async function missionList() {
       await Axios.get("/api/missionList").then((response) => {
@@ -64,13 +62,11 @@ const MissionMain = () => {
     if(e.target.checked) {
       setMissionCheck(missionCheck+1);
       alert("축하드립니다! 미션 성공!")
-      setDoneText("완료");
       console.log(missionCheck);
     }
     else {
       setMissionCheck(missionCheck-1);
       alert("취소되었습니다.")
-      setDoneText("미완료");
       console.log(missionCheck);
     }
     console.log(e.target.checked);
@@ -210,7 +206,7 @@ const MissionMain = () => {
                       <h4>{data.miTitle}</h4>
                       <h5>{data.miMember}</h5>
                     </div>
-                    <h5 className="check">{doneText}</h5>
+                    <h5 className="check"></h5>
                     <button onClick={(() => delButton(data.id))}
                       className="del-btn">삭제</button>
                   </div>

@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
 // import Logo from "../img/togetherLogo.png";
-// import Logo from "../img/once.gif";
 import Logo from "../img/result.gif"
 import "../css/CSSFirstPage.css";
 import Axios from "axios"
@@ -40,22 +39,22 @@ const Login = () => {
       console.log(e.target.value);
   }
 
-  const checkLogin = (e) => {
+  const checkLogin = () => {
     console.log(userList);
     for(let i=0; i<userList.length; i++) {
       if(id === userList[i].id && password === userList[i].password) {
+        setLogin(false);
+        alert("로그인 성공! 환영합니다.")
+        history.replace('/main')
+      }
+      else {
         setLogin(true);
       }
     }
-    
+
     if(login === true) {
-      alert("로그인 성공! 환영합니다.")
-      history.replace('/main')
-    }
-    else {
       alert("잘못된 정보를 입력하셨습니다.")
     }
-    
   }
 
   return (
@@ -88,8 +87,8 @@ const Login = () => {
             type="button" 
             
             className="btn-login-1" 
-            onClick={(e) => (
-              checkLogin(e)
+            onClick={() => (
+              checkLogin()
             )}>
             로그인
           </button>

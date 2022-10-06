@@ -10,8 +10,7 @@ const CalendarBody = () => {
   const [date, setDate] = useState("");
   const [click, setClick] = useState(true);
   const saveDate = [];
-
-
+  
   // get 방식
   useEffect(() => {
     async function calendarList() {
