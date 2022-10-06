@@ -1,14 +1,14 @@
 import React from "react";
-import Logo from "../img/logo.png";
+import Logo from "../img/togetherLogo.png";
 import "../css/CSSFirstPage.css";
 import { Link } from "react-router-dom";
 
-const logoutPage = () => {
+const LogoutPage = () => {
   return (
     <div>
       <div className="form-first">
         <img src={Logo} alt="" className="img-logo" />
-        <h2 className="color-white btn-center">투게더, 함께하는 즐거움</h2>
+        <h2 className="btn-center">투게더, 함께하는 즐거움</h2>
 
         <div className="btn-bundle">
           <Link to="/login">
@@ -28,4 +28,4 @@ const logoutPage = () => {
   );
 };
 
-export default logoutPage;
+export default LogoutPage;

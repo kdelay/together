@@ -23,7 +23,7 @@ const Menu = styled.div`
 
 function Sidebar() {
   const menus = [
-    { name: "홈", path: "/", img: <BsHouseDoorFill /> },
+    { name: "홈", path: "/main", img: <BsHouseDoorFill /> },
     { name: "미션", path: "/mission", img: <FaThList /> },
     { name: "캘린더", path: "/calendar", img: <FaCalendarAlt /> },
     { name: "갤러리", path: "/gallery", img: <GrGallery /> },

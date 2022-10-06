@@ -1,21 +1,26 @@
-html {
+.App {
     height: 100%;
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #363062;
+    /* align-items: center; */
+    /* justify-content: center; */
+    background-color: white;
 }
 
 .form-first {
-    background-color: #363062;
+    /* background-color: #363062; */
+    /* margin: auto; */
+    margin-top: 100px;
+    margin-left: 700px;
 }
 
 .img-logo {
     /* display: flex; */
+    /* margin: auto; */
     width: 500px;
     position: relative;
-    top: -50px;
+    /* align-items: center; */
+    /* top: -50px; */
 }
 
 .btn-center {
@@ -31,10 +36,12 @@ html {
     font-family: 'GangwonEdu_OTFBoldA';
     background-color: white;
     border-radius: 15px;
+    border: solid 1px #363062;
 }
 
 .btn-login:hover {
-    background-color: #E9D5DA;
+    background-color: #8880c4;
+    color: white;
 }
 
 .btn-register {
@@ -81,6 +88,7 @@ html {
 
 .wrapper {
     background-color: #363062;
+    margin: 50px auto;
 }
 
 .form-container {
@@ -88,6 +96,7 @@ html {
     margin: auto;
     padding: 0px 100px 0px;
     background: #ffffff;
+    border: dashed 3px #363062;
     border-radius: 50px;
 
 }

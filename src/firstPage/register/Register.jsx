@@ -2,6 +2,9 @@ import React, {useState, useEffect} from 'react';
 import Axios from "axios";
 import "../css/CSSFirstPage.css";
 import Logo from "../img/togetherLogo.png";
+// import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+
 
 const Register = () => {
     const [userList, setUserList] = useState([]);
@@ -9,6 +12,8 @@ const Register = () => {
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
     const [click, setClick] = useState(false);
+
+    let history = useHistory();
 
     // get 방식
     useEffect(() => {
@@ -47,16 +52,9 @@ const Register = () => {
             password: password,
             name: name
         });
+        
         console.log(result.data);
-
         alert(result.data);
-
-        if(click) {
-            setClick(false);
-        }
-        else {
-            setClick(true);
-        }
     }
 
     return (
@@ -90,7 +88,12 @@ const Register = () => {
               <span>닉네임 :</span>
               <span className="border"></span>
             </div>
-            <button onClick={(e) => ontext(id, password, name)} className="btn-submit">신청하기</button>
+            <button 
+              type="button"
+              onClick={(e) => (
+              ontext(id, password, name),
+              history.replace('/')
+              )} className="btn-submit">신청하기</button>
           </form>
         </div>
       </div>
