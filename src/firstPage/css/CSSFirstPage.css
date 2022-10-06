@@ -152,7 +152,7 @@ html {
     transform: scaleX(1);
 }
 
-button[type="submit"] {
+.btn-submit {
     width: 162px;
     height: 51px;
 
@@ -171,7 +171,7 @@ button[type="submit"] {
 
 }
 
-button[type="submit"]:hover {
+.btn-submit:hover {
     background-color: #827397;
     color: #ededf5;
     border-radius: 30px;
