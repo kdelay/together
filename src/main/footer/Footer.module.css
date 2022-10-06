@@ -2,10 +2,12 @@
     height:100px;
     margin-top: auto;
     background-color: #dde0ea;
+    /* width: 100%; */
+
 }
 
 .contents {
-    width: 96%;
+    width: 100%;
     max-width: 1100px;
     height: 100%;
     display: flex;

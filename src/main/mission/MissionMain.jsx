@@ -220,7 +220,7 @@ const MissionMain = () => {
         {/* ------ 뱃지 ------ */}
         <div className="white-space">
           <div>
-            <h1>달성 뱃지</h1>
+            <h1>뱃지</h1>
             <div className="box3">
               <div className="flex">
                 <img
@@ -304,8 +304,8 @@ const MissionMain = () => {
           </div>
         </div>
       </main>
-
       <Footer />
+
     </div>
   );
 };

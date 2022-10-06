@@ -139,8 +139,8 @@ const GalleryMain = () => {
 
             {/* 제목, 내용 */}
             <div className="input-contents">
-              <input type="text" placeholder="제목" value={title} maxLength="10" onChange={({target:{value}}) => setTitle(value)}/>
-              <input type="text" placeholder="내용" value={content} maxLength="20" onChange={({target:{value}}) => setContent(value)}/>
+              <input type="text" placeholder="제목" value={title} onChange={({target:{value}}) => setTitle(value)}/>
+              <input type="text" placeholder="내용" value={content} onChange={({target:{value}}) => setContent(value)}/>
             </div>
 
             {/* 추가 버튼 */}

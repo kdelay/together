@@ -22,13 +22,40 @@ const CalendarBody = () => {
     calendarList();
   }, [click]);
 
-  const DataOverlapDel = (date, title, content) => {
+  const delButton = (realId) => {
+    // console.log(calendarList[0].id);
+    // console.log(realId);
+    if(window.confirm("삭제하시겠습니까?")) {
+      for(let i=0; i<calendarList.length; i++) {
+        if(calendarList[i].id === realId) {
+          const response = Axios.post(`/api/calendarListDel/${realId}`);
+          console.log(response);
+        }
+      }
+
+      alert("삭제되었습니다.");
+    }
+    else {
+      alert("취소되었습니다.");
+    }
+
+    if(click) {
+      setClick(false);
+    }
+    else {
+      setClick(true);
+    }
+  }
+
+  const DataOverlapDel = (date, title, content, id) => {
     if (saveDate.some((v) => v === date)) {
       console.log("입력중");
       return (
         <div>
             <div>제목 : {title}</div>
             <div>내용 : {content}</div>
+            <button onClick={(() => delButton(id))}>삭제</button>
+
             <hr className='design1'/>
         </div>
       );
@@ -40,6 +67,9 @@ const CalendarBody = () => {
             <div className='date'>{date}</div>
             <div>제목 : {title}</div>
             <div>내용 : {content}</div>
+            <button onClick={(() => delButton(id))}>삭제</button>
+
+
             <hr className='design1'/>
           </div>
         </div>
@@ -71,8 +101,8 @@ const CalendarBody = () => {
     <div className='flex'>
       
       <div>
-      <Calendar/>
-      <div style={{marginLeft:'200px', marginTop:'50px'}}>
+      <div style={{marginLeft:'200px'}}><Calendar/></div>
+      <div style={{marginLeft:'350px', marginTop:'50px', width:'700px'}}>
         <p>날짜</p>
         <input
           type="text"
@@ -101,9 +131,7 @@ const CalendarBody = () => {
       <div style={{marginLeft:'100px'}}>
         {calendarList.map((data) => (
           <div key={data.id}>
-            {/* <div className='box'> */}
-            {DataOverlapDel(data.calDate, data.calTitle, data.calContents)}
-            {/* </div> */}
+            {DataOverlapDel(data.calDate, data.calTitle, data.calContents, data.id)}
           </div>
         ))}
       </div>

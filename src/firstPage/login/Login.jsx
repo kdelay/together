@@ -12,7 +12,7 @@ const Login = () => {
   const [name, setName] = useState("");
   const [click, setClick] = useState(false);
 
-  const [login, setLogin] = useState(false);
+  const [login, setLogin] = useState(0);
 
   let history = useHistory();
 
@@ -43,17 +43,13 @@ const Login = () => {
     console.log(userList);
     for(let i=0; i<userList.length; i++) {
       if(id === userList[i].id && password === userList[i].password) {
-        setLogin(false);
-        alert("로그인 성공! 환영합니다.")
-        history.replace('/main')
+        setLogin(0);
+        alert("로그인 성공! 환영합니다.");
+        history.replace('/main');
       }
       else {
-        setLogin(true);
+        setLogin(1);
       }
-    }
-
-    if(login === true) {
-      alert("잘못된 정보를 입력하셨습니다.")
     }
   }
 

@@ -15,7 +15,7 @@ const TogetherMain = () => {
           <Body/>
         </main>
 
-      <Footer/>
+        <Footer/>
     </div>
   );
 };
